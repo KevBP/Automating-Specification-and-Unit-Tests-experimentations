@@ -2,11 +2,7 @@ import haricots.*;
 import org.concordion.integration.junit4.ConcordionRunner;
 import org.junit.runner.RunWith;
 
-import java.awt.datatransfer.StringSelection;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @RunWith(ConcordionRunner.class)
 public class PlanterFixture {
@@ -22,14 +18,13 @@ public class PlanterFixture {
         Champ premierChamp = champFromString(champ1);
         Champ deuxiemeChamp = champFromString(champ2);
 
-        // TODO need to be fixed: due to a changement of source code
-        Joueur joueur = new Joueur(new Plantation(Arrays.asList(premierChamp, deuxiemeChamp)), new Main(cartesEnMain)) {
+        Joueur joueur = new JoueurHumain(new Plantation(Arrays.asList(premierChamp, deuxiemeChamp)), new Main(cartesEnMain), new Scanner(System.in)) {
             @Override
-            protected int choisirChampARecolter(Plantation plantation) {
-                return 2;  //To change body of implemented methods use File | Settings | File Templates.
+            public int choisirChampARecolter(Plantation plantation, Haricot haricot) {
+                return 2;
             }
         };
-        joueur.planter();
+        joueur.planterPremierePhase();
 
         return formatPlantation(joueur);
     }
@@ -38,7 +33,7 @@ public class PlanterFixture {
         Champ champ1 = champFromString(champ);
         Plantation plantation = new Plantation(Arrays.asList(champ1));
         int thunes = plantation.recolte(champ1);
-        if (thunes == 1) return "1 \"thune\"";
+        if (thunes <= 1) return thunes + " \"thune\"";
         else return thunes + " \"thunes\"";
     }
 

@@ -1,6 +1,6 @@
 package haricots;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Collections;
@@ -12,13 +12,6 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-/**
- * Created with IntelliJ IDEA.
- * User: fabrice
- * Date: 20/10/13
- * Time: 23:16
- * To change this template use File | Settings | File Templates.
- */
 public class JoueurUnitTest {
 
     @Test
@@ -60,6 +53,5 @@ public class JoueurUnitTest {
         Scanner scanner = new Scanner("");
         Joueur joueur = new JoueurHumain(plantation, main, scanner);
         joueur.echanger(Collections.EMPTY_LIST);
-
     }
 }

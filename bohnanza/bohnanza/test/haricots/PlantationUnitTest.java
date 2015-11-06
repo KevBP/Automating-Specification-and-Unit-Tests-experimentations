@@ -1,6 +1,6 @@
 package haricots;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -104,7 +104,6 @@ public class PlantationUnitTest {
         Plantation plantation = new Plantation(Arrays.asList(champ1));
         Assert.assertEquals(2, plantation.recolte(champ1));
     }
-
 
     @Test
     public void testRecolteChampPasAssezPlante() {

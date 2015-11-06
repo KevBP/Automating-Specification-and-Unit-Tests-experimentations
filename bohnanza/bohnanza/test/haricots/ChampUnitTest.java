@@ -1,16 +1,9 @@
 package haricots;
 
-import junit.framework.Assert;
 import org.junit.Test;
+import org.junit.Assert;
 import org.mockito.Mockito;
 
-/**
- * Created with IntelliJ IDEA.
- * User: fabrice
- * Date: 01/11/13
- * Time: 15:48
- * To change this template use File | Settings | File Templates.
- */
 public class ChampUnitTest {
 
 
